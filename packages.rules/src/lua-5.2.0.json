@@ -1,0 +1,6 @@
+{
+    "name":     "Lua 5.2 Source",
+    "tarfile":  "lua-5.2.0.tar.gz",
+    "instdir":  "src#:/#lua",
+    "installscript":    "lua_compile.py"
+}

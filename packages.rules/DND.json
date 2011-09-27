@@ -1,0 +1,8 @@
+{
+    "name":     "DND",
+    "tarfile":  "DND.tar.bz2",
+    "instdir":  "projects#:/#DND",
+    "depend":[
+        "src#:ossep#lua-5.2.0"
+    ]
+}

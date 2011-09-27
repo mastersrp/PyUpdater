@@ -1,0 +1,7 @@
+{
+    "workdir": "root", 
+    "backupdir": "backups", 
+    "mirror": [
+        "http://dl.dropbox.com/u/5579836/REPO/"
+    ]
+}

@@ -1,0 +1,72 @@
+<html>
+<head>
+<title>PyUpdater README</title>
+<script>
+function hideshow()
+{
+    DIV = document.getElementById("links");
+    if( DIV.style.display == "block" ) {
+        DIV.style.display = "None";
+    } else {
+        DIV.style.display = "block";
+    }
+}
+</script>
+</head>
+<body>
+First, please note that this is in no way final work.<br />
+Second, it never will be. Updates may or may not be released over time.<br />
+Also note that Python 3.2 was used to make these.<br />
+
+<hr>
+<div id="links" style="display:block;">
+<a href="#base_modules" >Scripts</a> <br />
+<a href="#packages.settings.json" >packages.settings.json</a> <br />
+<a href="#packages.rules" >packages.rules</a> <br />
+<a href="#packages.checksum" >packages.checksum</a> <br />
+</div>
+<div style="text-align:right;">
+<a href="#" onclick="hideshow();" >Show/Hide</a>
+</div>
+<hr>
+
+<a name="base_modules"><h2>Scripts</h2></a>
+<table border="1">
+<tr><td>update.py</td><td>Update <i>all</i> or selected packages from <a href="#packages.rules">packages.rules</a></td></tr>
+<tr><td>backup.py</td><td>Backup <i>all</i> or selected packages from <a href="#packages.rules">packages.rules</a></td></tr>
+<tr><td>clean.py</td><td>Clean up <i>all</i> or selected packages from <a href="#packages.rules">packages.rules</a></td></tr>
+</table>
+<!--
+<tr><td>TEXT</td><td>TEXT</td></tr>
+-->
+
+<a name="packages.settings.json"><h2>packages.settings.json</h2></a>
+This file contains the settings for general use (like work directory and mirrors, although currently only ONE mirror is possible)<br />
+tags:<br />
+<table border="1">
+<tr><td>mirror</td><td>Where all packages are located. Packages will be downloaded from 'mirror'+'<a href="#tag_tarfile">tarfile</a>'.</td></tr>
+<tr><td>workdir</td><td>Where to download the packages to, and the base dir of all installations and extractions.</td></tr>
+<tr><td>backupdir</td><td>This is where backups are placed when running the backup script. WIP</td></tr>
+</table>
+
+<a name="packages.rules"><h2>packages.rules</h2></a>
+This folder contains JSON files with rules on how and where to download packages from.<br />
+Each .json file...
+<UL>
+<LI>..Should contain at LEAST a "<a href="#tag_tarfile">tarfile</a>" tag. (name and instdir is NOT obligatory)</LI>
+<LI>..Should ALWAYS have the root tag be "package".</LI>
+</UL>
+tags:<br />
+<table border="1">
+<tr><td><a name="tag_tarfile">tarfile</a></td><td>.tar.bz2 filename. Can be either abselute (mirror+tarfile) or direct (URL).</td></tr>
+<tr><td>instdir</td><td><i>path</i> to extract <a href="#tag_tarfile">tarfile</a> to.</td></tr>
+<tr><td>depend</td><td>List/array of dependencies (another package from <a href="#packages.rules">packages.rules</a>)</td></tr>
+</table>
+
+<a name="packages.checksum"><h2>packages.checksum</h2></a>
+This folder contains checksums (sha1 hashes) for every <a href="#tag_tarfile">tarfile</a> downloaded.<br />
+There should be a checksum residing on the server as either 'mirror'+'<a href="#tag_tarfile">tarfile</a>'+".checksum or '<a href="#tag_tarfile">tarfile</a>'+".checksum.<br />
+The backup scripts generates .checksum files too, for each project and what not. A checksum consists of a sha1 hash of a tarfile (containing your package) and a newline char (\n).
+<br />
+</body>
+</html>

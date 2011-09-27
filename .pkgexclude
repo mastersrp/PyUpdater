@@ -1,0 +1,10 @@
+{
+    "EXCLUDE": [
+        "core/__pycache__",
+        "__pycache__",
+        "packages.settings.json",
+        "root",
+        "packages.checksum",
+		"packages.rules"
+    ]
+}
