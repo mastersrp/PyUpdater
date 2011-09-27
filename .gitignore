@@ -1,0 +1,6 @@
+__pycache__/
+core/__pycache__/
+packages.settings.json
+packages.installed
+root/
+backups/
