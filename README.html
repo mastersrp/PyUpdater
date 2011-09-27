@@ -4,6 +4,23 @@
 <title>PyUpdater README</title>
 <script src='http://mastersrp.kodingen.com/js/jquery-1.6.2.min.js'></script>
 <style>
+body{
+    font-family:Ubuntu;
+    background-color:#79C5FF;
+    background-image:url(http://dl.dropbox.com/u/5579836/Pic/website/bg_test1.png);
+    color: black;
+}
+table{
+    border-style:dashed;
+    border-width: 0.12em;
+    border-color: black;
+}
+th, td{
+    text-align: left;
+    padding:0.2em;
+    border-style: none;
+    border-width: 2em;
+}
 .content{
     background-color:white;
     border-style:solid;
@@ -12,8 +29,27 @@
     border-radius: 5px;
     padding:5px;
     padding-top:10px;
+    margin-bottom: 10px;
     color:black;
-    box-shadow: 5px 5px 5px #000000
+}
+.content_locked{
+    background-color:transparent;
+    border-style:none;
+    padding:5px;
+    padding-top:10px;
+    color:black;
+}
+.footer{
+    background-color:white;
+    color:black;
+    border-style:solid;
+    border-color:black;
+    border-width:1px;
+    border-radius: 5px;
+    padding:5px;
+    margin:10px;
+    margin-left:0;
+    margin-right:0;
 }
 a.toggler:visited{
     color:#0099FF;
@@ -48,23 +84,23 @@ $('document').ready( function() {
 </script>
 </head>
 <body>
+<div class='content'>
 First, please note that this is in no way final work.<br />
 Second, it never will be. Updates may or may not be released over time.<br />
 Also note that Python 3.2 was used to make these.<br />
-<b>Navigation</b>: Click the '<a href='#' class='toggler'>+/-</a>' to show or hide the section.
+<b>Navigation</b>: <a href='#' id='hideshow' class='toggler'>+/-</a>
+</div>
 
-<hr>
+<div>
+<div id='navigation' class='content'>
 <div id="links">
 (<a href="#" class='toggler' id='hide_base_modules'>+/-</a>) <a href="#base_modules" >Scripts</a><br />
 (<a href="#" class='toggler' id='hide_packages_settings_json'>+/-</a>) <a href="#packages.settings.json" >packages.settings.json</a><br />
 (<a href="#" class='toggler' id='hide_packages_rules'>+/-</a>) <a href="#packages.rules" >packages.rules</a><br />
 (<a href="#" class='toggler' id='hide_packages_checksum'>+/-</a>) <a href="#packages.checksum" >packages.checksum</a><br />
 </div>
-<div style="text-align:right;">
-<a href="#" class='toggler' id='hideshow' >+/-</a>
 </div>
-<hr>
-<div id='content'>
+<div class='content'>
 
 <div id="base_modules">
 <a name="base_modules"><h2>Scripts</h2></a>
@@ -113,10 +149,16 @@ The backup scripts generates .checksum files too, for each project and what not.
 <br />
 </div>
 </div>
+        <div class='footer'>
+        Design by <a href='http://mastersrp.kodingen.com/'>mastersrp</a><sup>[<a href='mailto:tcg.thegamer@gmail.com'>email</a>]</sup>
+        </div>
+</div>
 <script>
 $('a#hideshow').click( function() {
-    $('div#links').toggle('fast');
-    $('hr').toggle('fast');
+    $('div#links').toggle('fast', function() {
+        $('div#navigation').toggleClass('content');
+        $('div#navigation').toggleClass('content_locked');
+    });
 });
 $('a#hide_base_modules').click( function() {
     $('div#base_modules').toggle('fast');
