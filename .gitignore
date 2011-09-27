@@ -1,5 +1,6 @@
 __pycache__/
 core/__pycache__/
+packages.checksum/
 packages.settings.json
 packages.installed
 root/
