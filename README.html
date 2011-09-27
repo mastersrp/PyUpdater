@@ -1,45 +1,84 @@
+<!doctype HTML>
 <html>
 <head>
 <title>PyUpdater README</title>
-<script>
-function hideshow()
-{
-    DIV = document.getElementById("links");
-    if( DIV.style.display == "block" ) {
-        DIV.style.display = "None";
-    } else {
-        DIV.style.display = "block";
-    }
+<script src='http://mastersrp.kodingen.com/js/jquery-1.6.2.min.js'></script>
+<style>
+.content{
+    background-color:white;
+    border-style:solid;
+    border-color:black;
+    border-width:1px;
+    border-radius: 5px;
+    padding:5px;
+    padding-top:10px;
+    color:black;
+    box-shadow: 5px 5px 5px #000000
 }
+a.toggler:visited{
+    color:#0099FF;
+    text-decoration:none;
+}
+a.toggler:link{
+    color:#0099FF;
+    text-decoration:none;
+}
+a.toggler:hover{
+    color:#3BBFFF;
+    text-decoration:underline;
+}
+</style>
+<script>
+$('document').ready( function() {
+    $('div#base_modules').hide();
+    $('div#packages_settings_json').hide();
+    $('div#packages_rules').hide();
+    $('div#packages_checksum').hide();
+    $('div#links').hide();
+    $('div#links').show('fast', function() {
+        $('div#base_modules').show('fast', function() {
+            $('div#packages_settings_json').show('fast', function() {
+                $('div#packages_rules').show('fast', function() {
+                    $('div#packages_checksum').show('fast');
+                });
+            }); 
+        });
+    }); 
+});
 </script>
 </head>
 <body>
 First, please note that this is in no way final work.<br />
 Second, it never will be. Updates may or may not be released over time.<br />
 Also note that Python 3.2 was used to make these.<br />
+<b>Navigation</b>: Click the '<a href='#' class='toggler'>+/-</a>' to show or hide the section.
 
 <hr>
-<div id="links" style="display:block;">
-<a href="#base_modules" >Scripts</a> <br />
-<a href="#packages.settings.json" >packages.settings.json</a> <br />
-<a href="#packages.rules" >packages.rules</a> <br />
-<a href="#packages.checksum" >packages.checksum</a> <br />
+<div id="links">
+(<a href="#" class='toggler' id='hide_base_modules'>+/-</a>) <a href="#base_modules" >Scripts</a><br />
+(<a href="#" class='toggler' id='hide_packages_settings_json'>+/-</a>) <a href="#packages.settings.json" >packages.settings.json</a><br />
+(<a href="#" class='toggler' id='hide_packages_rules'>+/-</a>) <a href="#packages.rules" >packages.rules</a><br />
+(<a href="#" class='toggler' id='hide_packages_checksum'>+/-</a>) <a href="#packages.checksum" >packages.checksum</a><br />
 </div>
 <div style="text-align:right;">
-<a href="#" onclick="hideshow();" >Show/Hide</a>
+<a href="#" class='toggler' id='hideshow' >+/-</a>
 </div>
 <hr>
+<div id='content'>
 
+<div id="base_modules">
 <a name="base_modules"><h2>Scripts</h2></a>
 <table border="1">
 <tr><td>update.py</td><td>Update <i>all</i> or selected packages from <a href="#packages.rules">packages.rules</a></td></tr>
 <tr><td>backup.py</td><td>Backup <i>all</i> or selected packages from <a href="#packages.rules">packages.rules</a></td></tr>
 <tr><td>clean.py</td><td>Clean up <i>all</i> or selected packages from <a href="#packages.rules">packages.rules</a></td></tr>
 </table>
+</div>
 <!--
 <tr><td>TEXT</td><td>TEXT</td></tr>
 -->
 
+<div id='packages_settings_json'>
 <a name="packages.settings.json"><h2>packages.settings.json</h2></a>
 This file contains the settings for general use (like work directory and mirrors, although currently only ONE mirror is possible)<br />
 tags:<br />
@@ -48,7 +87,9 @@ tags:<br />
 <tr><td>workdir</td><td>Where to download the packages to, and the base dir of all installations and extractions.</td></tr>
 <tr><td>backupdir</td><td>This is where backups are placed when running the backup script. WIP</td></tr>
 </table>
+</div>
 
+<div id='packages_rules'>
 <a name="packages.rules"><h2>packages.rules</h2></a>
 This folder contains JSON files with rules on how and where to download packages from.<br />
 Each .json file...
@@ -62,11 +103,33 @@ tags:<br />
 <tr><td>instdir</td><td><i>path</i> to extract <a href="#tag_tarfile">tarfile</a> to.</td></tr>
 <tr><td>depend</td><td>List/array of dependencies (another package from <a href="#packages.rules">packages.rules</a>)</td></tr>
 </table>
+</div>
 
+<div id='packages_checksum'>
 <a name="packages.checksum"><h2>packages.checksum</h2></a>
 This folder contains checksums (sha1 hashes) for every <a href="#tag_tarfile">tarfile</a> downloaded.<br />
 There should be a checksum residing on the server as either 'mirror'+'<a href="#tag_tarfile">tarfile</a>'+".checksum or '<a href="#tag_tarfile">tarfile</a>'+".checksum.<br />
 The backup scripts generates .checksum files too, for each project and what not. A checksum consists of a sha1 hash of a tarfile (containing your package) and a newline char (\n).
 <br />
+</div>
+</div>
+<script>
+$('a#hideshow').click( function() {
+    $('div#links').toggle('fast');
+    $('hr').toggle('fast');
+});
+$('a#hide_base_modules').click( function() {
+    $('div#base_modules').toggle('fast');
+});
+$('a#hide_packages_settings_json').click( function() {
+    $('div#packages_settings_json').toggle('fast');
+});
+$('a#hide_packages_rules').click( function() {
+    $('div#packages_rules').toggle('fast');
+});
+$('a#hide_packages_checksum').click( function() {
+    $('div#packages_checksum').toggle('fast');
+});
+</script>
 </body>
 </html>
