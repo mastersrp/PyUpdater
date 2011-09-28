@@ -72,13 +72,7 @@ $('document').ready( function() {
     $('div#packages_checksum').hide();
     $('div#links').hide();
     $('div#links').show('fast', function() {
-        $('div#base_modules').show('fast', function() {
-            $('div#packages_settings_json').show('fast', function() {
-                $('div#packages_rules').show('fast', function() {
-                    $('div#packages_checksum').show('fast');
-                });
-            }); 
-        });
+        $('div#base_modules').show('fast');
     }); 
 });
 </script>
@@ -88,16 +82,17 @@ $('document').ready( function() {
 First, please note that this is in no way final work.<br />
 Second, it never will be. Updates may or may not be released over time.<br />
 Also note that Python 3.2 was used to make these.<br />
-<b>Navigation</b>: <a href='#' id='hideshow' class='toggler'>+/-</a>
+If you like what I do, why not donate?<form style='display:inline;' action="https://www.paypal.com/cgi-bin/webscr" method="post"><input type="hidden" name="cmd" value="_s-xclick"><input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----MIIHLwYJKoZIhvcNAQcEoIIHIDCCBxwCAQExggEwMIIBLAIBADCBlDCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb20CAQAwDQYJKoZIhvcNAQEBBQAEgYAaCeH2FphovUYHDKtAqnUa3UH1fhYo+iEr3+Ng1LDld81hnJqKWeOYU2mc0eTzzOoKTdZUTMLcS322CKSrcQkufL7bhyYHpsZqJCRY5y1skyvTzg9hqkbl++YGwLouO5wHg1Oyy1OT/Bez4sgYTHSCX09VHPhL3i1Tjx2fYQ++SjELMAkGBSsOAwIaBQAwgawGCSqGSIb3DQEHATAUBggqhkiG9w0DBwQIt2T/oVPUa9+AgYiF99A9u2EPjzt3v4Jx613PwkAcqyTbV1PwEBbKhYaJ2PGwDgppn7Bc59hgRn2Uc8k5RRqF6E19JcdHUcmN/RDP+VPA+JWx4YpXpd+Qvy6en+lRlTHwdSWTc7zVkR+fg/plRIGcW305jrIJ52aqT/fzsTkbQH9P1SPS/ZTWPfWkn94L9T/LbE+AoIIDhzCCA4MwggLsoAMCAQICAQAwDQYJKoZIhvcNAQEFBQAwgY4xCzAJBgNVBAYTAlVTMQswCQYDVQQIEwJDQTEWMBQGA1UEBxMNTW91bnRhaW4gVmlldzEUMBIGA1UEChMLUGF5UGFsIEluYy4xEzARBgNVBAsUCmxpdmVfY2VydHMxETAPBgNVBAMUCGxpdmVfYXBpMRwwGgYJKoZIhvcNAQkBFg1yZUBwYXlwYWwuY29tMB4XDTA0MDIxMzEwMTMxNVoXDTM1MDIxMzEwMTMxNVowgY4xCzAJBgNVBAYTAlVTMQswCQYDVQQIEwJDQTEWMBQGA1UEBxMNTW91bnRhaW4gVmlldzEUMBIGA1UEChMLUGF5UGFsIEluYy4xEzARBgNVBAsUCmxpdmVfY2VydHMxETAPBgNVBAMUCGxpdmVfYXBpMRwwGgYJKoZIhvcNAQkBFg1yZUBwYXlwYWwuY29tMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDBR07d/ETMS1ycjtkpkvjXZe9k+6CieLuLsPumsJ7QC1odNz3sJiCbs2wC0nLE0uLGaEtXynIgRqIddYCHx88pb5HTXv4SZeuv0Rqq4+axW9PLAAATU8w04qqjaSXgbGLP3NmohqM6bV9kZZwZLR/klDaQGo1u9uDb9lr4Yn+rBQIDAQABo4HuMIHrMB0GA1UdDgQWBBSWn3y7xm8XvVk/UtcKG+wQ1mSUazCBuwYDVR0jBIGzMIGwgBSWn3y7xm8XvVk/UtcKG+wQ1mSUa6GBlKSBkTCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb22CAQAwDAYDVR0TBAUwAwEB/zANBgkqhkiG9w0BAQUFAAOBgQCBXzpWmoBa5e9fo6ujionW1hUhPkOBakTr3YCDjbYfvJEiv/2P+IobhOGJr85+XHhN0v4gUkEDI8r2/rNk1m0GA8HKddvTjyGw/XqXa+LSTlDYkqI8OwR8GEYj4efEtcRpRYBxV8KxAW93YDWzFGvruKnnLbDAF6VR5w/cCMn5hzGCAZowggGWAgEBMIGUMIGOMQswCQYDVQQGEwJVUzELMAkGA1UECBMCQ0ExFjAUBgNVBAcTDU1vdW50YWluIFZpZXcxFDASBgNVBAoTC1BheVBhbCBJbmMuMRMwEQYDVQQLFApsaXZlX2NlcnRzMREwDwYDVQQDFAhsaXZlX2FwaTEcMBoGCSqGSIb3DQEJARYNcmVAcGF5cGFsLmNvbQIBADAJBgUrDgMCGgUAoF0wGAYJKoZIhvcNAQkDMQsGCSqGSIb3DQEHATAcBgkqhkiG9w0BCQUxDxcNMTEwOTI4MjExODEwWjAjBgkqhkiG9w0BCQQxFgQUwK+CONpgcESfurJMrtb6xbmeRIwwDQYJKoZIhvcNAQEBBQAEgYASph1RvSGMndH11ilmmCrN94uWvLskn0lDqoywlDestimO8AWpHlr+sDWkkc2zTVYvXKz776zqHGer9CcWciJNyUsIOJL60X2HI9YJKEzGDfOXMJNrE5zovI2ObrV9JowC4Ou4+7eib7GwmbHILkv4GZur9aY1ow1ToViesiGQ/g==-----END PKCS7-----"><input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!"><img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1"></form><br />
+<b>Navigation</b>: <a href='#' id='hideshow' class='toggler'>+/-</a><br />
 </div>
 
 <div>
 <div id='navigation' class='content'>
 <div id="links">
-(<a href="#" class='toggler' id='hide_base_modules'>+/-</a>) <a href="#base_modules" >Scripts</a><br />
-(<a href="#" class='toggler' id='hide_packages_settings_json'>+/-</a>) <a href="#packages.settings.json" >packages.settings.json</a><br />
-(<a href="#" class='toggler' id='hide_packages_rules'>+/-</a>) <a href="#packages.rules" >packages.rules</a><br />
-(<a href="#" class='toggler' id='hide_packages_checksum'>+/-</a>) <a href="#packages.checksum" >packages.checksum</a><br />
+<a class='toggler' id='hide_base_modules' href="#base_modules" >Scripts</a><br />
+<a class='toggler' id='hide_packages_settings_json' href="#packages.settings.json" >packages.settings.json</a><br />
+<a class='toggler' id='hide_packages_rules' href="#packages.rules" >packages.rules</a><br />
+<a class='toggler' id='hide_packages_checksum' href="#packages.checksum" >packages.checksum</a><br />
 </div>
 </div>
 <div class='content'>
@@ -161,16 +156,28 @@ $('a#hideshow').click( function() {
     });
 });
 $('a#hide_base_modules').click( function() {
-    $('div#base_modules').toggle('fast');
+    $('div#base_modules').show('fast');
+    $('div#packages_settings_json').hide('fast');
+    $('div#packages_rules').hide('fast');
+    $('div#packages_checksum').hide('fast');
 });
 $('a#hide_packages_settings_json').click( function() {
-    $('div#packages_settings_json').toggle('fast');
+    $('div#base_modules').hide('fast');
+    $('div#packages_settings_json').show('fast');
+    $('div#packages_rules').hide('fast');
+    $('div#packages_checksum').hide('fast');
 });
 $('a#hide_packages_rules').click( function() {
-    $('div#packages_rules').toggle('fast');
+    $('div#base_modules').hide('fast');
+    $('div#packages_settings_json').hide('fast');
+    $('div#packages_rules').show('fast');
+    $('div#packages_checksum').hide('fast');
 });
 $('a#hide_packages_checksum').click( function() {
-    $('div#packages_checksum').toggle('fast');
+    $('div#base_modules').hide('fast');
+    $('div#packages_settings_json').hide('fast');
+    $('div#packages_rules').hide('fast');
+    $('div#packages_checksum').show('fast');
 });
 </script>
 </body>
