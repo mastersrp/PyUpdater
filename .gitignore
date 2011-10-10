@@ -1,3 +1,7 @@
+# File extensions
+*.pyd
+*.pyc
+# Other
 __pycache__/
 core/__pycache__/
 packages.checksum/
